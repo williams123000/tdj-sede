@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface2: #f0ede7;
+  --border: #e2ddd6;
+  --border2: #ccc7be;
+  --text: #1a1916;
+  --text2: #6b6760;
+  --text3: #9c9790;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --surface: #1c1b19;
+    --surface2: #242320;
+    --border: #2e2c29;
+    --border2: #3d3b37;
+    --text: #f0ede7;
+    --text2: #9c9790;
+    --text3: #6b6760;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 20px; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.animate-fade-up { animation: fadeUp 0.35s ease both; }
+.animate-pulse-dot { animation: pulse 2s infinite; }
+
+/* Stagger delays */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.10s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.20s; }
+.delay-5 { animation-delay: 0.25s; }
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+/* Nav tab hover */
+.nav-tab[data-active='false']:hover {
+  background: var(--surface2) !important;
+  color: var(--text) !important;
+}
+
+/* Report card expand */
+.report-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.report-card.expanded .report-body {
+  max-height: 900px;
+}
+.report-card.expanded .chevron-icon {
+  transform: rotate(180deg);
+}
+.chevron-icon {
+  transition: transform 0.25s;
+}

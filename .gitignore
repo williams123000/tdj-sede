@@ -1,0 +1,16 @@
+.next/
+node_modules/
+.env.local
+.env
+*.env
+dist/
+out/
+.vercel/
+{src/
+
+.env.example
+supabase-migration-v2.sql
+supabase-migration-v3.sql
+supabase-schema.sql
+
+README.md
