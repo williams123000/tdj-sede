@@ -38,7 +38,7 @@ export function useReports(filters: ReportFilters = {}) {
 }
 
 export function useStats() {
-  const [stats, setStats] = useState({ config: 0, install: 0, repair: 0, toner: 0, total: 0, today: 0 })
+  const [stats, setStats] = useState({ config: 0, install: 0, repair: 0, toner: 0, total: 0, today: 0, pending: 0, in_progress: 0 })
   const [loading, setLoading] = useState(true)
 
   const fetch = useCallback(async () => {
